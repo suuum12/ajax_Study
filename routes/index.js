@@ -38,4 +38,16 @@ router.post('/content', async (req, res, next) => {
    }
 });
 
+router.delete('/content', async (req, res, next) => {
+    try {
+        await Content.destroy({
+            where: {},
+            turncate: true
+        })
+    } catch (e) {
+        console.error(e);
+        next(e);
+    }
+});
+
 module.exports = router;
